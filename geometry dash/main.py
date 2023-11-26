@@ -7,6 +7,7 @@ HEIGHT = 550
 player = Rect(10, 500, 50, 50)
 gravity = 0
 
+
 platforms = []
 platform = None
 max_height = HEIGHT
@@ -45,7 +46,7 @@ def on_key_down():
 def get_collided_platform():
     if player.collidelist(platforms) != -1:
         return platforms[player.collidelist(platforms)]
-    
+
 
 def update():
     global gravity
@@ -56,9 +57,7 @@ def update():
     
     if get_collided_platform() is not None:
         platform = get_collided_platform()
-        if player.bottom >= platform.top:
-            player.bottom = platform.top
-        # if player.bottom <= 
+        
     else:
         gravity += 1
     player.y += gravity
