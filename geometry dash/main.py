@@ -51,16 +51,15 @@ def get_collided_platform():
 def update():
     global gravity
     global max_height
-    global is_on_floor
     global platform
     
     
     if get_collided_platform() is not None:
         platform = get_collided_platform()
-        
-    else:
+        player.bottom = platform.top
+    if not is_on_floor():
         gravity += 1
-    player.y += gravity
+        player.y += gravity
     
     if player.bottom >= HEIGHT:
         player.bottom = HEIGHT
